@@ -14,8 +14,6 @@ function Header(props) {
   const handleClickGoBack = () => {
     //history.goBack();
     history.push(backButton);
-    console.log("clicked");
-    console.log(history);
   };
 
   return (

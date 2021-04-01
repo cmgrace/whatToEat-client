@@ -35,7 +35,7 @@ export class RestaurantProvider extends Component {
 
   setRestaurantList = (restaurantList) => {
     this.setState({ restaurantList });
-    console.log(this.state.restaurantList);
+    //console.log(this.state.restaurantList);
   };
   setFavoritesList = (favorites) => {
     this.setState({ favorites });

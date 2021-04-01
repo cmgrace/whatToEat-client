@@ -23,8 +23,9 @@ class FavoriteRestaurant extends Component {
   };
 
   render() {
+    const { fav_id } = this.props;
     return (
-      <Link to={`/favorites/${this.props.fav_id}`}>
+      <Link to={`/favorites/${fav_id}`}>
         <div className="chat">
           <Avatar
             variant="square"

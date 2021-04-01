@@ -18,10 +18,7 @@ class App extends Component {
 
             <Route path={"/favorites"} component={Favorites} />
 
-            <Route
-              path="/favorites/:restaurant_id"
-              component={RestaurantScreen}
-            />
+            <Route path={"/favorites/:fav_id"} component={RestaurantScreen} />
           </Switch>
         </div>
       </Router>
