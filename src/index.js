@@ -3,11 +3,14 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App/App";
 import { BrowserRouter } from "react-router-dom";
+import { RestaurantProvider } from "./Context/Context";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <RestaurantProvider>
+      <App />
+    </RestaurantProvider>
   </BrowserRouter>,
   document.getElementById("root")
 );

@@ -1,20 +1,34 @@
 import React, { Component } from "react";
 import TinderCard from "react-tinder-card";
 import "./RestaurantCards.css";
+import Header from "../Header/Header";
+import SwipeButtons from "../SwipeButtons/SwipeButtons";
+import Context from "../Context/Context";
+import RestaurantApiService from "../services/restaurant-api-service";
 
 class RestaurantCards extends Component {
-  state = {
-    people: [
-      {
-        name: "Smashburger",
-        imgUrl:
-          "https://s3-media0.fl.yelpcdn.com/bphoto/fwcKOndKjsvCOQJush9dXQ/o.jpg",
-      },
-    ],
-  };
+  static contextType = Context;
 
-  swiped = (direction, nameToDelete) => {
-    console.log("removing: " + nameToDelete);
+  state = { error: null };
+
+  swiped = (direction, idToDelete) => {
+    this.setState({ error: null });
+    const item = { restaurant_id: idToDelete };
+
+    if (direction === "left") console.log("removing: " + idToDelete);
+    if (direction === "right") {
+      RestaurantApiService.postRestaurantToFavorites(item)
+        .then((restaurantId) => {
+          //console.log(restaurantId);
+
+          this.context.UpdateFavoritesList(restaurantId);
+        })
+        .catch((error) => {
+          this.setState({ error });
+          console.error({ error });
+        });
+      console.log("adding: " + idToDelete);
+    }
   };
 
   outOfFrame = (name) => {
@@ -22,28 +36,34 @@ class RestaurantCards extends Component {
   };
 
   render() {
-    const { people } = this.state;
+    const { restaurantList } = this.context;
     return (
-      <div className="tinderCards">
-        <div className="tinderCards__cardContainer">
-          {people.map((person) => (
-            <TinderCard
-              className="swipe"
-              key={person.name}
-              preventSwipe={["up", "down"]}
-              onSwipe={(dir) => this.swiped(dir, person.name)}
-              onCardLeftScreen={() => this.outOfFrame(person.name)}
-            >
-              <div
-                style={{ backgroundImage: `url(${person.imgUrl})` }}
-                className="card"
+      <>
+        <Header />
+        <div className="tinderCards">
+          <div className="tinderCards__cardContainer">
+            {restaurantList.map((restaurant) => (
+              <TinderCard
+                className="swipe"
+                key={restaurant.id}
+                preventSwipe={["up", "down"]}
+                onSwipe={(dir) => this.swiped(dir, restaurant.id)}
+                onCardLeftScreen={() => this.outOfFrame(restaurant.name)}
               >
-                <h3>{person.name}</h3>
-              </div>
-            </TinderCard>
-          ))}
+                <div
+                  style={{ backgroundImage: `url(${restaurant.image_url})` }}
+                  className="card"
+                >
+                  <h3>{restaurant.name}</h3>
+                  <p>{restaurant.location}</p>
+                  <p>{restaurant.rating}</p>
+                </div>
+              </TinderCard>
+            ))}
+          </div>
         </div>
-      </div>
+        <SwipeButtons />
+      </>
     );
   }
 }
