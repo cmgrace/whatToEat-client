@@ -15,7 +15,7 @@ class RestaurantCards extends Component {
     this.setState({ error: null });
     const item = { restaurant_id: idToDelete };
 
-    if (direction === "left") console.log("removing: " + idToDelete);
+    // if (direction === "left") console.log("removing: " + idToDelete);
     if (direction === "right") {
       RestaurantApiService.postRestaurantToFavorites(item)
         .then((restaurantId) => {
@@ -27,12 +27,12 @@ class RestaurantCards extends Component {
           this.setState({ error });
           console.error({ error });
         });
-      console.log("adding: " + idToDelete);
+      // console.log("adding: " + idToDelete);
     }
   };
 
   outOfFrame = (name) => {
-    console.log(name + " left the screen");
+    // console.log(name + " left the screen");
   };
 
   render() {
@@ -55,8 +55,6 @@ class RestaurantCards extends Component {
                   className="card"
                 >
                   <h3>{restaurant.name}</h3>
-                  <p>{restaurant.location}</p>
-                  <p>{restaurant.rating}</p>
                 </div>
               </TinderCard>
             ))}

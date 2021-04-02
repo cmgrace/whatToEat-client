@@ -37,6 +37,14 @@ const RestaurantApiService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
+
+  getDishes() {
+    return fetch(`${API_ENDPOINT}/dishes`, {
+      headers: { "content-type": "application/json" },
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
 };
 
 export default RestaurantApiService;

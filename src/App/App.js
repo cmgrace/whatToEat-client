@@ -16,9 +16,12 @@ class App extends Component {
           <Switch>
             <Route exact path={"/"} component={RestaurantCards} />
 
-            <Route path={"/favorites"} component={Favorites} />
+            <Route exact path={"/favorites"} component={Favorites} />
 
-            <Route path={"/favorites/:fav_id"} component={RestaurantScreen} />
+            <Route
+              path={"/favorites/:restaurant_id"}
+              component={RestaurantScreen}
+            />
           </Switch>
         </div>
       </Router>

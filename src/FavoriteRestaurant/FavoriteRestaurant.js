@@ -23,9 +23,9 @@ class FavoriteRestaurant extends Component {
   };
 
   render() {
-    const { fav_id } = this.props;
+    const { restaurant_id } = this.props;
     return (
-      <Link to={`/favorites/${fav_id}`}>
+      <>
         <div className="chat">
           <Avatar
             variant="square"
@@ -34,10 +34,12 @@ class FavoriteRestaurant extends Component {
             src={this.props.image_url}
           />
           <div className="chat__details">
-            <h2>{this.props.name}</h2>
-            <p>Price: {this.props.price}</p>
-            <p>Cusine: {this.props.categories}</p>
-            <p>{this.props.location}</p>
+            <Link to={`/favorites/${restaurant_id}`}>
+              <h2>{this.props.name}</h2>
+              <p>Price: {this.props.price}</p>
+              <p>Cusine: {this.props.categories}</p>
+              <p>{this.props.location}</p>
+            </Link>
           </div>
           <div className="chat__timestamp">
             <IconButton onClick={this.handleDeleteClick}>
@@ -45,7 +47,7 @@ class FavoriteRestaurant extends Component {
             </IconButton>
           </div>
         </div>
-      </Link>
+      </>
     );
   }
 }

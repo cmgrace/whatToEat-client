@@ -23,6 +23,7 @@ class Favorites extends Component {
           {favorites.map((Restaurant, i) => (
             <FavoriteRestaurant
               key={i}
+              restaurant_id={Restaurant.id}
               fav_id={Restaurant.fav_id}
               name={Restaurant.name}
               price={Restaurant.price}
