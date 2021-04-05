@@ -23,9 +23,9 @@ function Header(props) {
           <ArrowBackIosIcon fontSize="large" className="header__icon" />
         </IconButton>
       ) : (
-        <IconButton>
-          <PersonIcon fontSize="large" className="header__icon" />
-        </IconButton>
+        // <IconButton>
+        <PersonIcon fontSize="large" className="header__icon" />
+        // {/* </IconButton> */}
       )}
 
       <Link to="/">

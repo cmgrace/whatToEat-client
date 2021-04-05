@@ -14,7 +14,7 @@ Live Deployment
 <img src="img/first.png">
 <img src="img/second.png">
 <img src="img/third.png">
-<img src="img/fourth.png">
+<img src="img/fifth.png">
 
 ## Technology used
 

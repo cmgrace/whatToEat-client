@@ -3,8 +3,8 @@
   bottom: 5vh;
   display: flex;
   width: 100%;
-
-  justify-content: space-evenly;
+  justify-content: center;
+  /* justify-content: space-evenly; */
 }
 
 .swipeButtons .MuiIconButton-root {
@@ -37,4 +37,9 @@
 .swipeButtons__lightning {
   padding: 3vw !important;
   color: #915dd1 !important;
+}
+
+.swipeButtons__aboutme {
+  padding-bottom: 20px;
+  margin-right: 15px;
 }
