@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./SwipeButtons.css";
 import ReplayIcon from "@material-ui/icons/Replay";
 import CloseIcon from "@material-ui/icons/Close";
@@ -18,9 +19,11 @@ class SwipeButtons extends Component {
         <IconButton className="swipeButtons__left">
           <CloseIcon fontSize="large" />
         </IconButton>
-        <IconButton className="swipeButtons__star">
-          <StarIcon fontSize="large" />
-        </IconButton>
+        <Link to="/aboutme">
+          <IconButton className="swipeButtons__star">
+            <StarIcon fontSize="large" />
+          </IconButton>
+        </Link>
         <IconButton className="swipeButtons__right">
           <FavoriteIcon fontSize="large" />
         </IconButton>

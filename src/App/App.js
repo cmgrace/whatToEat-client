@@ -6,6 +6,7 @@ import RestaurantCards from "../RestaurantCards/RestaurantCards";
 // import SwipeButtons from "../SwipeButtons/SwipeButtons";
 import Favorites from "../Favorites/Favorites";
 import RestaurantScreen from "../RestaurantScreen/RestaurantScreen";
+import LandingPage from "../LandingPage/LandingPage";
 
 class App extends Component {
   state = {};
@@ -22,6 +23,8 @@ class App extends Component {
               path={"/favorites/:restaurant_id"}
               component={RestaurantScreen}
             />
+
+            <Route path={"/aboutme"} component={LandingPage} />
           </Switch>
         </div>
       </Router>
