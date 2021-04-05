@@ -11,9 +11,10 @@ Live Deployment
 - User can remove the restaurants in favorites
 - User can view each favorite restaurant info and menu.
 
-<img src="images/first.png">
-<img src="images/second.png">
-<img src="images/third.png">
+<img src="img/first.png">
+<img src="img/second.png">
+<img src="img/third.png">
+<img src="img/fourth.png">
 
 ## Technology used
 
